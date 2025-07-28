@@ -32,7 +32,7 @@ def main():
     print("Starting Microsoft domain check...")
     try:
         with open('unsorted.txt', 'r') as f:
-            domains = [line.strip() for line in f.readlines()]
+            domains = f.read().strip().split()
             
         print(f"Found {len(domains)} domains to check\n")
         
