@@ -1,0 +1,23 @@
+name: Filter Links
+
+on:
+  workflow_dispatch:
+
+jobs:
+  filter-links:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+        
+    - name: Run filter script
+      run: python filter.py
